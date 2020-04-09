@@ -3,11 +3,12 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Heading from './Heading';
 import InputField from './InputField';
 import TodoList from './TodoList';
+import {TodosProvider} from '../store/TodosContext';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,13 +19,20 @@ const styles = StyleSheet.create({
 });
 
 const App = () => {
-  const [todo, setTodo] = useState('');
+  const todos = [
+    {name: 'Laundry', done: true},
+    {name: 'Groceries', done: false},
+    {name: 'Code', done: false},
+  ]; // provided as default to see it works
+
   return (
-    <View style={styles.container}>
-      <Heading />
-      <InputField todo={todo} setTodo={setTodo} />
-      <TodoList />
-    </View>
+    <TodosProvider value={todos}>
+      <View style={styles.container}>
+        <Heading />
+        <InputField />
+        <TodoList />
+      </View>
+    </TodosProvider>
   );
 };
 
