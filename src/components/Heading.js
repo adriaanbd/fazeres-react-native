@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Text} from 'react-native-elements';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
 const Heading = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>fazeres</Text>
+      <Text h1>fazeres</Text>
     </View>
   );
 };
