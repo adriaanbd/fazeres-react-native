@@ -1,5 +1,5 @@
 import reducerContext from './reducerContext';
-import todosReducer from './reducers';
+import todosReducer from './reducers/todos';
 
 const DEFAULT_STATE = [
   {name: 'Laundry', done: true},

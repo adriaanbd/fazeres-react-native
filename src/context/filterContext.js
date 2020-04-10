@@ -1,5 +1,5 @@
-import reducerContext from './createDataContext';
-import filterReducer from './reducers';
+import reducerContext from './reducerContext';
+import filterReducer from './reducers/filter';
 
 const DEFAULT_STATE = 'All';
 

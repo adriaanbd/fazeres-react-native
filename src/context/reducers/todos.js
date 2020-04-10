@@ -1,4 +1,4 @@
-import {LIST_TODOS, ADD_TODO, EDIT_TODO, REMOVE_TODO} from './types';
+import {LIST_TODOS, ADD_TODO, EDIT_TODO, REMOVE_TODO} from '../actions/types';
 
 const todosReducer = (state, action) => {
   const {type, todos, id} = action;
