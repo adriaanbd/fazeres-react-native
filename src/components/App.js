@@ -8,7 +8,7 @@ import {View, StyleSheet} from 'react-native';
 import Heading from './Heading';
 import InputField from './InputField';
 import TodoList from './TodoList';
-import {TodosProvider} from '../store/TodosContext';
+import CombinedProvider from '../context/combinedProvider';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,20 +19,14 @@ const styles = StyleSheet.create({
 });
 
 const App = () => {
-  const todos = [
-    {name: 'Laundry', done: true},
-    {name: 'Groceries', done: false},
-    {name: 'Code', done: false},
-  ]; // provided as default to see it works
-
   return (
-    <TodosProvider value={todos}>
+    <CombinedProvider>
       <View style={styles.container}>
         <Heading />
         <InputField />
         <TodoList />
       </View>
-    </TodosProvider>
+    </CombinedProvider>
   );
 };
 

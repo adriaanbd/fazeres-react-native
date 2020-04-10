@@ -1,15 +1,14 @@
 import React, {useContext} from 'react';
 import {Card} from 'react-native-elements';
 import Todo from './Todo';
-import TodosContext from '../store/TodosContext';
 
-const TodoList = () => {
-  const todos = useContext(TodosContext);
+const TodoList = props => {
+  const {children} = props;
 
   return (
     <Card>
-      {todos.map((todo, idx) => (
-        <Todo todo={todo.name} idx={idx} />
+      {children.map((todo, idx) => (
+        <Todo todo={todo.name} key={idx} />
       ))}
     </Card>
   );

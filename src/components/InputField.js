@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {Card, Input, Icon} from 'react-native-elements';
 
@@ -18,10 +18,11 @@ const styles = StyleSheet.create({
 });
 
 const InputField = props => {
-  const {todo, setTodo} = props;
+  const {addTodo} = props;
+  const [todo, setTodo] = useState('');
 
-  const addTodo = () => {
-    // add todo logic
+  const handleAdd = () => {
+    //
   };
 
   return (
@@ -35,7 +36,7 @@ const InputField = props => {
             name="add-circle-outline"
             size={24}
             color="skyblue"
-            onPress={addTodo}
+            onPress={handleAdd}
           />
         }
         value={todo}
