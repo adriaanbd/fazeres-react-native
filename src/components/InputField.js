@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {StyleSheet} from 'react-native';
 import {Card, Input, Icon} from 'react-native-elements';
+import {Context} from '../context/todosContext';
+import {addTodo} from '../context/actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,12 +19,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const InputField = props => {
-  const {addTodo} = props;
-  const [todo, setTodo] = useState('');
+const DEFAULT = '';
+
+const InputField = () => {
+  const [todoName, setTodo] = useState(DEFAULT);
+  const {dispatch} = useContext(Context);
 
   const handleAdd = () => {
-    //
+    const todoItem = {name: todoName, done: false};
+    dispatch(addTodo(todoItem));
+    setTodo(DEFAULT);
   };
 
   return (
@@ -39,7 +45,7 @@ const InputField = props => {
             onPress={handleAdd}
           />
         }
-        value={todo}
+        value={todoName}
         onChangeText={setTodo}
       />
     </Card>

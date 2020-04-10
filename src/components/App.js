@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import Heading from './Heading';
 import InputField from './InputField';
 import TodoList from './TodoList';
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
-    paddingHorizontal: 32,
+    paddingHorizontal: 24,
   },
 });
 
@@ -24,7 +24,9 @@ const App = () => {
       <View style={styles.container}>
         <Heading />
         <InputField />
-        <TodoList />
+        <ScrollView keyboardDismissMode="on-drag">
+          <TodoList />
+        </ScrollView>
       </View>
     </CombinedProvider>
   );

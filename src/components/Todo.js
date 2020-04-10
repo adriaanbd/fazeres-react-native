@@ -3,7 +3,7 @@ import {CheckBox, ListItem, Icon} from 'react-native-elements';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  // custome styling
+  // custom styling
 });
 
 const Todo = props => {
