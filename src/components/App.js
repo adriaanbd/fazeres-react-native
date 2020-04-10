@@ -24,7 +24,7 @@ const App = () => {
       <View style={styles.container}>
         <Heading />
         <InputField />
-        <ScrollView keyboardDismissMode="on-drag">
+        <ScrollView keyboardShouldPersistTaps="always">
           <TodoList />
         </ScrollView>
       </View>

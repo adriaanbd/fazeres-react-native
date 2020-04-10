@@ -4,6 +4,13 @@ import {Card, Input, Icon} from 'react-native-elements';
 import {Context} from '../context/todosContext';
 import {addTodo} from '../context/actions';
 
+// uuid library crashes: https://github.com/uuidjs/uuid/issues/375
+import uuid from 'uuid-random';
+/* other alternatives:
+https://github.com/ai/nanoid#react-native
+https://github.com/eugenehp/react-native-uuid
+*/
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -26,7 +33,8 @@ const InputField = () => {
   const {dispatch} = useContext(Context);
 
   const handleAdd = () => {
-    const todoItem = {name: todoName, done: false};
+    const id = uuid();
+    const todoItem = {name: todoName, done: false, id};
     dispatch(addTodo(todoItem));
     setTodo(DEFAULT);
   };

@@ -7,8 +7,8 @@ const TodoList = () => {
   const {state} = useContext(Context);
   return (
     <Card>
-      {state.map((todo, idx) => (
-        <Todo todo={todo.name} key={idx} />
+      {state.map(todo => (
+        <Todo todo={todo.name} key={todo.id} id={todo.id} />
       ))}
     </Card>
   );
