@@ -55,6 +55,7 @@ const InputField = () => {
         }
         value={todoName}
         onChangeText={setTodo}
+        onSubmitEditing={handleAdd}
       />
     </Card>
   );
