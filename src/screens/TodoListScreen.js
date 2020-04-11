@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const TodoListScreen = () => (
+const TodoListScreen = ({navigation}) => (
   <View style={styles.container}>
     <ScrollView>
       <Heading />
       <InputField />
-      <TodoList />
+      <TodoList navigation={navigation} />
     </ScrollView>
   </View>
 );

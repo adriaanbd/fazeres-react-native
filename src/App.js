@@ -5,14 +5,20 @@
 
 import React from 'react';
 import TodoListScreen from './screens/TodoListScreen';
+import TodoItemScreen from './screens/TodoItemScreen';
 import CombinedProvider from './context/combinedProvider';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-const App = () => {
-  return (
-    <CombinedProvider>
-      <TodoListScreen />
-    </CombinedProvider>
-  );
-};
+const stackNavigator = createStackNavigator({
+  TodoListScreen,
+  TodoItemScreen,
+});
 
-export default App;
+const App = createAppContainer(stackNavigator);
+
+export default () => (
+  <CombinedProvider>
+    <App />
+  </CombinedProvider>
+);
