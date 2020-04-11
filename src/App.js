@@ -4,32 +4,21 @@
  */
 
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
-import Heading from './components/Heading';
-import InputField from './components/InputField';
 import TodoListScreen from './screens/TodoListScreen';
+import TodoItemScreen from './screens/TodoItemScreen';
 import CombinedProvider from './context/combinedProvider';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-    paddingHorizontal: 24,
-  },
+const stackNavigator = createStackNavigator({
+  TodoListScreen,
+  TodoItemScreen,
 });
 
-const App = () => {
-  return (
-    <CombinedProvider>
-      <View style={styles.container}>
-        <Heading />
-        <InputField />
-        <ScrollView keyboardShouldPersistTaps="always">
-          <TodoListScreen />
-        </ScrollView>
-      </View>
-    </CombinedProvider>
-  );
-};
+const App = createAppContainer(stackNavigator);
 
-export default App;
+export default () => (
+  <CombinedProvider>
+    <App />
+  </CombinedProvider>
+);
