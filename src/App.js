@@ -5,10 +5,10 @@
 
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Heading from './Heading';
-import InputField from './InputField';
-import TodoList from './TodoList';
-import CombinedProvider from '../context/combinedProvider';
+import Heading from './components/Heading';
+import InputField from './components/InputField';
+import TodoListScreen from './screens/TodoListScreen';
+import CombinedProvider from './context/combinedProvider';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ const App = () => {
         <Heading />
         <InputField />
         <ScrollView keyboardShouldPersistTaps="always">
-          <TodoList />
+          <TodoListScreen />
         </ScrollView>
       </View>
     </CombinedProvider>
