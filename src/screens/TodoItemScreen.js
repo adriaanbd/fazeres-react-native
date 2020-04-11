@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View} from 'react-native';
 import {Text} from 'react-native-elements';
+import {Context as TodoContext} from '../context/todosContext';
 
-const TodoItemScreen = () => {
+const TodoItemScreen = ({navigation}) => {
+  const id = navigation.getParam('id');
+  const {state} = useContext(TodoContext);
+  const todo = state.find(item => item.id === id);
   return (
     <View>
-      <Text>Hello World</Text>
+      <Text>{todo.name}</Text>
     </View>
   );
 };

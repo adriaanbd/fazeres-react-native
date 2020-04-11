@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {CheckBox, ListItem, Icon} from 'react-native-elements';
+import {withNavigation} from 'react-navigation';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Context} from '../context/todosContext';
 import {removeTodo} from '../context/actions';
@@ -21,11 +22,11 @@ const Todo = ({id, todo, navigation}) => {
   };
 
   const handleItemPress = () => {
-    // highlight list item
+    navigation.push('TodoItemScreen', {id});
   };
 
   return (
-    <TouchableOpacity onPress={() => navigation.push('TodoItemScreen')}>
+    <TouchableOpacity onPress={handleItemPress}>
       <ListItem
         containerSyling={styles.container}
         key={id}
@@ -45,4 +46,4 @@ const Todo = ({id, todo, navigation}) => {
   );
 };
 
-export default Todo;
+export default withNavigation(Todo);
