@@ -11,7 +11,12 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 const stackNavigator = createStackNavigator({
-  TodoListScreen,
+  TodoListScreen: {
+    screen: TodoListScreen,
+    navigationOptions: {
+      header: () => null,
+    },
+  },
   TodoItemScreen,
 });
 
